@@ -13,15 +13,8 @@ public final class DriverFactory {
 
     public static void initializeBrowser() {
 
-        String browser = ConfigReader.getBrowser();
-
+        String browser = System.getProperty("browser", ConfigReader.getBrowser());
         setDriver(BrowserFactory.getBrowser(browser));
-
-        getDriver().manage().window().maximize();
-
-        getDriver().manage().deleteAllCookies();
-
-        getDriver().get(ConfigReader.getUrl());
     }
 
     public static WebDriver getDriver() {
