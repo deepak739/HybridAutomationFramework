@@ -23,6 +23,16 @@ public class BaseTest {
 
         driver.get(ConfigReader.getUrl());
 
+        System.out.println("Browser Name = " +
+                ((org.openqa.selenium.remote.RemoteWebDriver) DriverFactory.getDriver())
+                        .getCapabilities()
+                        .getBrowserName());
+
+        System.out.println("Browser Version = " +
+                ((org.openqa.selenium.remote.RemoteWebDriver) DriverFactory.getDriver())
+                        .getCapabilities()
+                        .getBrowserVersion());
+
     }
 
     @AfterMethod
