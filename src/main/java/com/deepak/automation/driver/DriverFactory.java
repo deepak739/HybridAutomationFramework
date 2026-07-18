@@ -13,8 +13,21 @@ public final class DriverFactory {
 
     public static void initializeBrowser() {
 
-        String browser = System.getProperty("browser", ConfigReader.getBrowser());
+        String systemBrowser = System.getProperty("browser");
+        String configBrowser = ConfigReader.getBrowser();
+
+        System.out.println("====================================");
+        System.out.println("System Property Browser : " + systemBrowser);
+        System.out.println("Config Browser          : " + configBrowser);
+
+        String browser = System.getProperty("browser", configBrowser);
+
+        System.out.println("Final Browser           : " + browser);
+
         setDriver(BrowserFactory.getBrowser(browser));
+
+        System.out.println("Driver Class            : " + getDriver().getClass().getName());
+        System.out.println("====================================");
     }
 
     public static WebDriver getDriver() {

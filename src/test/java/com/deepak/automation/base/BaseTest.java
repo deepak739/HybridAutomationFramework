@@ -26,9 +26,13 @@ public class BaseTest {
     }
 
     @AfterMethod
-    public void tearDown() {
+    public void tearDown() throws InterruptedException {
 
         //DriverFactory.quitDriver();
+
+        System.out.println("AfterMethod Executed");
+
+       // Thread.sleep(60000);
 
     }
 }
